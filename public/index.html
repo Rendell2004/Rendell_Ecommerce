@@ -1,26 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href = "bootstrap-5.3.3/css/bootstrap.min.css">
-    <script src = "bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monara</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; }
+        
+        /* Top Banner */
+        .top-bar { background-color: #fce4c4; font-size: 0.85rem; padding: 8px 0; font-weight: 500; }
+        
+        /* Navbar */
+        .navbar-brand { font-weight: 800; font-size: 1.5rem; color: #333; }
+        .search-input { background-color: #e9ecef; border: none; border-radius: 20px; padding-left: 35px; }
+        .search-container { position: relative; width: 400px; }
+        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888; }
+        
+        /* Hero Section */
+        .hero-section { 
+            background-color: #f9e9d6; /* Fallback for the image */
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-title { font-size: 4.5rem; font-weight: 800; line-height: 1; margin-bottom: 1.5rem; }
+        .hero-text { max-width: 500px; color: #555; margin-bottom: 2rem; }
+        .btn-shop { 
+            background-color: #f2b872; 
+            border: none; 
+            padding: 12px 40px; 
+            border-radius: 30px; 
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .btn-shop:hover { background-color: #e5a557; }
 
-
+        /* Stats */
+        .stat-number { font-size: 2.5rem; font-weight: 700; margin-bottom: 0; }
+        .stat-label { color: #666; font-size: 0.9rem; }
+    </style>
 </head>
-<body >
-  <header class="container">
- <nav class="">
-  <div>
-    <h3>E-Commerce</h3>
-  </div>
-    <div class="justify-content-center">
-      <ul>
-        <a href="#">HOME</a>
-        <a href="#">SERVICES</a>
-        <a href="#">SHOP</a>
-        <a href="#">ABOUT US</a>
-      </ul>
+<body>
+
+    <div class="top-bar text-center text-uppercase">
+        Welcome to MONARA
     </div>
- </nav>
- </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-exclude me-2"></i>Monara
+            </a>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                </ul>
+                
+                <div class="search-container mx-auto d-none d-lg-block">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" class="form-control search-input" placeholder="Search for products...">
+                </div>
+
+                <div class="d-flex align-items-center gap-4">
+                    <a href="#" class="text-dark fs-5"><i class="bi bi-envelope"></i></a>
+                    <a href="#" class="text-dark fs-5"><i class="bi bi-cart3"></i></a>
+                    <a href="#" class="text-dark fs-5"><i class="bi bi-person-circle"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="hero-title">FIND ACCESSORIES <br> THAT MATCH <br> YOUR STYLE</h1>
+                    <p class="hero-text">
+                        Explore our curated collection of bags, jewelry, and more designed to elevate every outfit and highlight your unique style.
+                    </p>
+                    <button class="btn btn-shop mb-5">Shop Now</button>
+
+                    <div class="row mt-4">
+                        <div class="col-4 border-end">
+                            <h2 class="stat-number">300+</h2>
+                            <p class="stat-label">International Brands</p>
+                        </div>
+                        <div class="col-4 border-end">
+                            <h2 class="stat-number">8,000+</h2>
+                            <p class="stat-label">High-Quality Products</p>
+                        </div>
+                        <div class="col-4">
+                            <h2 class="stat-number">12,000+</h2>
+                            <p class="stat-label">Customers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
