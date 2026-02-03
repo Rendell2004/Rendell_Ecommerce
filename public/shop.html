@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - TechStore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white shadow-sm p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">TECH<span class="text-gray-900">STORE</span></a>
+            <a href="index.html" class="text-gray-600 hover:text-blue-600">Back to Home</a>
+        </div>
+    </nav>
+
+    <header class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Our Collection</h1>
+            
+            <div class="flex flex-wrap gap-4">
+                <button onclick="filterProducts('all')" class="px-6 py-2 bg-blue-600 text-white rounded-full">All Products</button>
+                <button onclick="filterProducts('phone')" class="px-6 py-2 bg-gray-200 hover:bg-blue-100 rounded-full">Phones</button>
+                <button onclick="filterProducts('tablet')" class="px-6 py-2 bg-gray-200 hover:bg-blue-100 rounded-full">Tablets</button>
+                <button onclick="filterProducts('laptop')" class="px-6 py-2 bg-gray-200 hover:bg-blue-100 rounded-full">Laptops</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div id="shop-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <p class="text-gray-500">Connecting to Firebase...</p>
+        </div>
+    </main>
+
+    <script type="module">
+        // 1. Setup the connection (Same as before)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "your-project.firebaseapp.com",
+            projectId: "your-project-id",
+            // ... paste your full config here
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // 2. THE FILTER FUNCTION
+        // This function runs every time you click a category button.
+        window.filterProducts = async (category) => {
+            const shopGrid = document.getElementById('shop-grid');
+            shopGrid.innerHTML = "<p>Loading " + category + "...</p>";
+
+            let q; // This will hold our "Question" to the database
+            const productsRef = collection(db, "products");
+
+            // If user clicks 'all', get everything. Otherwise, filter by category.
+            if (category === 'all') {
+                q = query(productsRef);
+            } else {
+                // This is like saying: "Find products WHERE category is equal to 'phone'"
+                q = query(productsRef, where("category", "==", category));
+            }
+
+            try {
+                const querySnapshot = await getDocs(q);
+                shopGrid.innerHTML = ""; // Clear the loading text
+
+                querySnapshot.forEach((doc) => {
+                    const item = doc.data();
+                    // Generate the HTML for each item found
+                    shopGrid.innerHTML += `
+                        <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-lg transition">
+                            <img src="${item.imageUrl}" class="h-40 w-full object-contain mb-4">
+                            <h3 class="font-bold text-lg text-gray-800">${item.name}</h3>
+                            <p class="text-blue-600 font-semibold">$${item.price}</p>
+                            <button class="w-full mt-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
+                                View Details
+                            </button>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                console.error("Error filtering: ", error);
+            }
+        };
+
+        // Load all products by default when page opens
+        filterProducts('all');
+    </script>
+</body>
+</html>
