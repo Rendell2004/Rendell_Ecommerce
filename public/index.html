@@ -3,111 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monara</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; }
-        
-        /* Top Banner */
-        .top-bar { background-color: #fce4c4; font-size: 0.85rem; padding: 8px 0; font-weight: 500; }
-        
-        /* Navbar */
-        .navbar-brand { font-weight: 800; font-size: 1.5rem; color: #333; }
-        .search-input { background-color: #e9ecef; border: none; border-radius: 20px; padding-left: 35px; }
-        .search-container { position: relative; width: 400px; }
-        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888; }
-        
-        /* Hero Section */
-        .hero-section { 
-            background-color: #f9e9d6; /* Fallback for the image */
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-title { font-size: 4.5rem; font-weight: 800; line-height: 1; margin-bottom: 1.5rem; }
-        .hero-text { max-width: 500px; color: #555; margin-bottom: 2rem; }
-        .btn-shop { 
-            background-color: #f2b872; 
-            border: none; 
-            padding: 12px 40px; 
-            border-radius: 30px; 
-            font-weight: 700;
-            transition: 0.3s;
-        }
-        .btn-shop:hover { background-color: #e5a557; }
-
-        /* Stats */
-        .stat-number { font-size: 2.5rem; font-weight: 700; margin-bottom: 0; }
-        .stat-label { color: #666; font-size: 0.9rem; }
-    </style>
+    <title>TechSite | Premium Electronics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-50 font-sans">
 
-    <div class="top-bar text-center text-uppercase">
-        Welcome to MONARA
-    </div>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 border-bottom">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="bi bi-exclude me-2"></i>Monara
-            </a>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                </ul>
-                
-                <div class="search-container mx-auto d-none d-lg-block">
-                    <i class="bi bi-search search-icon"></i>
-                    <input type="text" class="form-control search-input" placeholder="Search for products...">
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <h1 class="text-2xl font-bold text-blue-600">TECH<span class="text-gray-900">STORE</span></h1>
                 </div>
-
-                <div class="d-flex align-items-center gap-4">
-                    <a href="#" class="text-dark fs-5"><i class="bi bi-envelope"></i></a>
-                    <a href="#" class="text-dark fs-5"><i class="bi bi-cart3"></i></a>
-                    <a href="#" class="text-dark fs-5"><i class="bi bi-person-circle"></i></a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Phones</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Tablets</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Laptops</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-blue-600"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="text-gray-600 hover:text-blue-600 relative">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h1 class="hero-title">FIND ACCESSORIES <br> THAT MATCH <br> YOUR STYLE</h1>
-                    <p class="hero-text">
-                        Explore our curated collection of bags, jewelry, and more designed to elevate every outfit and highlight your unique style.
-                    </p>
-                    <button class="btn btn-shop mb-5">Shop Now</button>
-
-                    <div class="row mt-4">
-                        <div class="col-4 border-end">
-                            <h2 class="stat-number">300+</h2>
-                            <p class="stat-label">International Brands</p>
-                        </div>
-                        <div class="col-4 border-end">
-                            <h2 class="stat-number">8,000+</h2>
-                            <p class="stat-label">High-Quality Products</p>
-                        </div>
-                        <div class="col-4">
-                            <h2 class="stat-number">12,000+</h2>
-                            <p class="stat-label">Customers</p>
-                        </div>
-                    </div>
+    <header class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center py-16 px-4 sm:px-6 lg:px-8">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Upgrade Your <span class="text-blue-600">Digital Life.</span>
+                </h2>
+                <p class="mt-4 text-lg text-gray-600">
+                    Get the latest iPhones, Galaxies, and MacBooks at the best prices with nationwide shipping.
+                </p>
+                <div class="mt-8">
+                    <a href="#shop" class="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition">Shop Now</a>
                 </div>
-                <div class="col-lg-5">
-                    </div>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800" alt="Tech Hero" class="rounded-lg shadow-2xl">
             </div>
         </div>
     </header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 class="text-2xl font-bold text-center mb-12">Browse Categories</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center hover:shadow-md transition cursor-pointer">
+                    <i class="fa-solid fa-mobile-screen-button text-4xl text-blue-500 mb-4"></i>
+                    <h4 class="text-xl font-semibold">Smartphones</h4>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center hover:shadow-md transition cursor-pointer">
+                    <i class="fa-solid fa-tablet-screen-button text-4xl text-blue-500 mb-4"></i>
+                    <h4 class="text-xl font-semibold">Tablets</h4>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center hover:shadow-md transition cursor-pointer">
+                    <i class="fa-solid fa-laptop text-4xl text-blue-500 mb-4"></i>
+                    <h4 class="text-xl font-semibold">Laptops</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="py-16 max-w-7xl mx-auto px-4">
+        <h3 class="text-2xl font-bold mb-8">Featured Products</h3>
+        <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <div class="h-48 bg-gray-200 flex items-center justify-center">
+                    <i class="fa-solid fa-image text-gray-400 text-4xl"></i>
+                </div>
+                <div class="p-4">
+                    <span class="text-xs font-bold text-blue-600 uppercase">Phone</span>
+                    <h4 class="font-bold text-lg mt-1">Loading Products...</h4>
+                    <p class="text-gray-600 mt-2">$0.00</p>
+                    <button class="w-full mt-4 bg-gray-900 text-white py-2 rounded hover:bg-blue-600 transition">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center border-t border-gray-800 pt-8">
+            <p>&copy; 2026 TechStore Ecommerce. Powered by Firebase.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
